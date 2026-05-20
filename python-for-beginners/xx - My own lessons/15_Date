@@ -1,0 +1,19 @@
+from datetime import datetime
+
+# Get the current date and time
+current_datetime = datetime.now()  
+# Ask for birthday input in the format DD-MM-YYYY
+birthday_input = input("Enter your birthday (DD-MM-YYYY): ")    
+birthday = datetime.strptime(birthday_input, "%d-%m-%Y")
+# Calculate the accurate age from today until birthday and provide the output in years and days, hours, minutes, and seconds
+age_years = current_datetime.year - birthday.year
+age_months = current_datetime.month - birthday.month
+age_days = current_datetime.day - birthday.day
+if age_months < 0 or (age_months == 0 and age_days < 0):
+    age_years -= 1
+    age_months += 12
+if age_days < 0:
+    age_months -= 1
+    age_days += 30  # Approximate number of days in a month
+
+print(f"Your age is {age_years} years, {age_months} months, and {age_days} days.")27-07-1974
